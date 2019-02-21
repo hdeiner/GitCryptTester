@@ -7,7 +7,8 @@ The file encrypted.txt should say, "This is the contents of encrypted.txt".  But
 Steps to create:
 - apt-get install git-crypt
 - gpg --gen-key
-- gpg --keyserver pgp.mit.edu --send-key 
+- gpg --keyserver pgp.mit.edu --send-key [this doesn't work and isn't really needed]
+- git-crypt init
 - git-crypt add-gpg-user --trusted [use the email you used in gen-key]
 - create .gitattributes and define encrypted files
 - git add .gitattributes encrypted.txt unencrypted.txt README.MD
@@ -29,3 +30,7 @@ Steps to create:
   gpg-agent --daemon --allow-preset-passphrase --max-cache-ttl 3153600000
   /usr/lib/gnupg2/gpg-preset-passphrase --preset --passphrase $GPG_PASSPHRASE $KEY_ID
   ```
+  
+For MacOS:
+- brew install git-crypt
+- brew install gnupg
